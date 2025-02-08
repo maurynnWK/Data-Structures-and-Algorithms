@@ -1,0 +1,3 @@
+- - It is my desire that by half of the year i'll have mastered and have great skills on Data Structures and Algorithms.
+- - I will using resourses like leetcose, youTube and probably text books
+  - I desire to implement skills earned in this project in my daily coding activities to improve industrial favour.
