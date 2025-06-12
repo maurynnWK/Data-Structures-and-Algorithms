@@ -23,14 +23,7 @@ class Linked_List:
                 current=current.next
             current.next=newnode
 
-    #print list
-    def  print_list(self):
-        current=self.head
-        while current:            
-            print(current.data,end=" -> ")
-            current=current.next
-
-   ##getting length of the linked list\
+    ##getting length of the linked list\
     def find_length(self):
         length=0
         current=self.head
@@ -45,23 +38,7 @@ class Linked_List:
         self.head=new_node
         new_node.next=to_shift
 
-    # def insert_middle(self,data,position):
-    #     new_node=Node(data)
-        
-    #     if position== 0:
-    #         self.insert_begin(data)
-    #         return
-        
-    #     current=self.head
-    #     count=0
-
-    #     while current is not None and count<=position:
-    #         current=current.next
-    #         count+=1   
-
-    #     to_shift=current   
-    #     current.next=new_node
-    #     new_node.next=to_shift
+    ## adding a node at a certain position of the linked list
     def insert_at_position(self, data, position):
         if position == 0:
             self.insert_begin(data)
@@ -69,23 +46,31 @@ class Linked_List:
 
         new_node = Node(data)
         current = self.head
-        count = 0
+        count = 1
 
         # Go to node just before the target position
-        while current is not None and count < position - 1:
+        while current != None and count < position:
             current = current.next
             count += 1
 
-        if current is None:
-            print("Position out of range.")
-            return
-
-        new_node.next = current.next
-        current.next = new_node
-
+        to_shift=current.next
+        current.next=new_node
+        new_node.next=to_shift
     
+    #traverse the linked list
+    def traverse(self):
+        current=self.head
+        while current !=None:
+            print(current.data,end="->")
+            current=current.next
 
-        
+    #delete an item
+    def delete_item(self,item):
+        current=self.head
+        while current != None:
+            if current.next.data==item:
+                current=current.next.next
+
      
 
 
@@ -100,42 +85,25 @@ linked_list.append_list("F")
 
 
 
-linked_list.print_list()
-print()
-linked_list.find_length()
-linked_list.insert_begin("D")
+# linked_list.traverse()
+# print()
+# linked_list.find_length()
+# linked_list.insert_begin("D")
 
-linked_list.print_list()
-print()
-linked_list.find_length()
-print()
-linked_list.insert_middle("J",1)
-
-print()
-print()
-linked_list.print_list()
-
-
-
-
+# linked_list.traverse()
+# print()
+# linked_list.find_length()
+# print()
+# linked_list.insert_at_position("J",2)
+# print()
+# linked_list.traverse()
+# print()
+# print()
+linked_list.delete_item("B")
+linked_list.traverse()
 
 
 
 
-# node1=Node("A")
-# node2=Node("B")
-# node3=Node("C")
 
-# #memory adressess of object
-# # print(node1)
-# # print(node2)
-# print(node3)
 
-# #link the nodes together
-# node1.next=node2
-# node2.next=node3
-# #node3.next is None which is equal to null as it is the last node we have in the singly linked list
-
-# print(node2.next)
-# print(node1.next.next.data)
-# print(node2.data)
